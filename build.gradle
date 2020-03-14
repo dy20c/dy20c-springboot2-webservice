@@ -1,0 +1,65 @@
+/*
+* 2020.03.13 (금) 오후 7:30 최두영
+* 빌드스크립트 추가
+* ext라는 키워드는 build.gradle에서 사용하는 전역변수를 설정하겠다는 의
+*/
+buildscript{
+    ext {
+        springBootVersion = '2.1.7.RELEASE'
+    }
+
+    repositories{
+        mavenCentral()
+        jcenter()
+    }
+    dependencies{
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+/*
+* 2020.03.13 (금) 오후 7:32 최두영
+* 아래 4개 플러그인은 자바와 스프링 부트를 사용하기 위해서는 필수 플러그인들이므로 항상 추가
+*/
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+/*
+* 2020.03.13 (금) 오후 7:32 최두영
+* io.spring.dependency-management 플러그인은 스프링 부트의 의존성들을 관리해주는 플러그인이라 꼭 추가해야한다.
+*/
+apply plugin: 'io.spring.dependency-management'
+
+
+
+//plugins {
+//    id 'java'
+//    id 'eclipse'
+//    id 'org.springframework.boot'
+//    id 'io.spring.dependency-management'
+//}
+
+group 'com.dyc.test'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+/*
+* 2020.03.13 (금) 오후 7:36 최두영
+* 최근에 라이브러리 업로드 난이도 때문에 jcenter도 많이 사용
+* mavenCentral은 이전부터 많이 사용하는 저장소이지, 본인이 만든 라이브러리를 업로드하기 위해서는 정말 많은 과정과 설정이 필요합니다.
+* 그러다보니 개발자들이 직접 만든 라이브러리를 업로드하는 것이 힘들어 점점 공유가 안되는 상황이 발생.
+* 최근에 나온 jcenter는 이런 문제점을 개선하여 라이브러리 업로드를 간단하게 함.
+* 덧붙여 jcenter에 라이브러리를 업로드하면 mavenCentral에도 업로드될 수 있도록 자동화를 할 수 있다.
+*
+*/
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    //testCompile group: 'junit', name: 'junit', version: '4.12'
+}

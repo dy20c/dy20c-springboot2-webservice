@@ -57,9 +57,21 @@ repositories {
     mavenCentral()
     jcenter()
 }
-
+/*
+* (1)spring-boot-starter-data-jpa
+*   - 스프링 부트용 Spring Data JPA 추상화 라이브러리입니다.
+*   - 스프링 부트 버전에 맞춰 자동으로 JPA 관련 라이브러리들의 버전을 관리해줍니다.
+* (2)h2
+*   - 인메모리 관계형 데이터베이스입니다.
+*   - 별도의 설치가 필요 없이 프로젝트 의존성만으로 관리할 수 있습니다.
+*   - 메모리에서 실행되기 때문에 애플리케이션을 재시작할 때마다 초기화 된다는 점을 이용하여 테스트 용도로 많이 사용합니다.
+*   - JPA의 테스트, 로컬 환경에서의 구동에서 사용할 예
+* */
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.projectlombok:lombok')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('com.h2database:h2')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     //testCompile group: 'junit', name: 'junit', version: '4.12'
 }

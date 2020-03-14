@@ -1,14 +1,14 @@
 #주석
-2020-03-14 (토) 오후 7:18 dy20c
+2020-03-14 (토) 오후 7:18 dy20c  
 2020.03.13 (금) 오후 7:32 dy20c
 
 #Shortcuts
-Github Push : Command + Shift + K
-Search Actions : Command + Shift + A
-Search Class : Command + N
-Search Files : Command + Shift + N
-Libraries Auto Find : Ctrl + Space
-Import Packages : Option + Enter
+Github Push : Command + Shift + K  
+Search Actions : Command + Shift + A  
+Search Class : Command + N  
+Search Files : Command + Shift + N  
+Libraries Auto Find : Ctrl + Space  
+Import Packages : Option + Enter  
 
 #References
 1. TDD 실천법과 도구공개,

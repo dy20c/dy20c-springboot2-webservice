@@ -36,6 +36,39 @@ public class Posts {
 *   - 테이블과 링크될 클래스임을 나타냅니다.
 *   - 기본값으로 클래스의 카멜케이스 이름을 언더스코어 네이밍(_)으로 테이블 이름을 매칭합니다.
 *   - ex)SalesManager.java -> sales_manager table
+*
+*   * Entity 클래스에서는 절대 Setter 메소드를 만들지 않습니다. 대신, 해당 필드의 값 변경이 필요하면 명확히
+*     그 목적과 의도를 나타낼 수 있는 메소드를 추가해야만 합니다.
+*     예를 들어 주문 취소 메소드를 만든다고 가정하면 다음 코드로 비교해보면 됩니다.
+*
+*     > 잘못된 사용 예
+*     public class Order{
+*       public void setStatus(boolean status){
+*           this.status = status
+*       }
+*     }
+*
+*     public void 주문서비스의_취소이벤트 (){
+*       order.setStatus(false);
+*     }
+*
+*     > 올바른 사용 예
+*     public class Order{
+*       public void cancelOrder(){
+*           this.status = false;
+*       }
+*     }
+*
+*     public void 주문서비스의_취소이벤트 )_}
+*       order.cancelOrder();
+*     }
+*
+*     > Setter가 없는 이 상황에서 어떻게 값을 채워 DB에 삽입 insert 해야 할까요?
+*      기본적인 구조는 생성자를 통해 최종값을 채운 후 DB에 삽입 insert 하는 것이며, 값 변경이 필요한 경우
+*      해당 이벤트에 맞는 public 메소드를 호출하여 변경하는 것을 전제로 합니다.
+*      여기서는 생성자 대신에 @Builder를 통해 제공되는 빌더 클래스를 사용합니다. 생성자나 빌더나 생성 시점 값을
+*      채워주는 역할은 똑같습니다. 다만, 생성자의 경우 지금 채워야 할 필드가 무엇인지 명확히 지정할 수가 없습니다.
+*
 * (2) @Id
 *   - 해당 테이블의 PK 필드를 나타냅니다.
 * (3) @GeneratedValue

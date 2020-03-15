@@ -1,6 +1,6 @@
 package com.dy20c.test.springboot.web;
 
-import com.dy20c.test.springboot.web.dto.TestResponseDto;
+import com.dy20c.test.springboot.dto.TestResponseDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

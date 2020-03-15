@@ -1,4 +1,4 @@
-package com.dy20c.test.springboot.web.dto;
+package com.dy20c.test.springboot.dto;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

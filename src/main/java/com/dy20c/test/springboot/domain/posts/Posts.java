@@ -29,6 +29,12 @@ public class Posts {
         this.content = content;
         this.author = author;
     }
+
+    /* 2020-03-18 (수) 오후 9:50 dy20c  */
+    public void update(String title, String content){
+        this.title = title;
+        this.content = content;
+    }
 }
 
 /*
